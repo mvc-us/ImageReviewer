@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .fit { /* set relative picture size */
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .center {
+    display: block;
+    margin: auto;
+  }
+</style>
+</head>
+
+<body>
+<title>Result: {{ img_name }}</title>
+<h1>Result: {{ img_name }}</h1>
+<p>Original:</p>
+<img class="center fit" src="{{ url_for('precomp_upload', img_name=img_name) }}" alt="Original">
+
+<p>Tesseract:</p>
+<img class="center fit" src="{{ url_for('tesseract_output', img_name=img_name) }}" alt="Tesseract {{ img_name }}">
+
+<p>After swt:</p>
+<img class="center fit" src="{{ url_for('swt_output', img_name=img_name) }}" alt="swt image {{ img_name }}">
+
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+</body>
+</html>
